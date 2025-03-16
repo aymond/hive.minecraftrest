@@ -11,7 +11,7 @@ info:
     
     ## Rate Limiting
     The API implements rate limiting to prevent abuse. Default limit is 60 requests per minute.
-  version: '1.0.0'
+  version: '1.0.1'
   contact:
     name: aymond
     url: https://github.com/aymond/hive.minecraftrest
