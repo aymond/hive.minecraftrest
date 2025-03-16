@@ -1,7 +1,8 @@
 name: MinecraftREST
-version: '${project.version}'
+version: '1.0.0'
 main: com.minecraftrest.api.MinecraftREST
 api-version: '1.20'
-authors: [MinecraftREST]
-description: A RESTful API interface for Minecraft servers
-website: https://github.com/minecraft-rest/minecraft-rest 
+authors: [aymond]
+description: A RESTful API interface for Minecraft servers with secure JWT authentication, player management, and server control
+website: https://github.com/aymond/hive.minecraftrest
+commands: {} 

@@ -6,10 +6,26 @@
 
     <groupId>com.minecraft-rest</groupId>
     <artifactId>minecraft-rest</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0.0</version>
     <packaging>jar</packaging>
 
     <name>MinecraftREST</name>
+    <description>A RESTful API interface for Minecraft servers</description>
+    <url>https://github.com/aymond/hive.minecraftrest</url>
+
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>https://opensource.org/licenses/MIT</url>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <name>aymond</name>
+            <url>https://github.com/aymond</url>
+        </developer>
+    </developers>
 
     <properties>
         <java.version>17</java.version>
