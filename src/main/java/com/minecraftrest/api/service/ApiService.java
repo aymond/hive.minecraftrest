@@ -201,8 +201,19 @@ public class ApiService {
                 return gson.toJson(Map.of("error", "Player not found"));
             }
 
-            player.kickPlayer(reason != null ? reason : "Kicked by admin");
-            return gson.toJson(Map.of("success", true, "message", "Player kicked successfully"));
+            // Run kick operation on the main server thread
+            org.bukkit.scheduler.BukkitRunnable task = new org.bukkit.scheduler.BukkitRunnable() {
+                @Override
+                public void run() {
+                    player.kickPlayer(reason != null ? reason : "Kicked by admin");
+                    response.status(200);
+                    response.body(gson.toJson(Map.of("success", true, "message", "Player kicked successfully")));
+                }
+            };
+            task.runTask(org.bukkit.plugin.java.JavaPlugin.getProvidingPlugin(ApiService.class));
+            
+            // This return is just a placeholder, the actual response is set in the BukkitRunnable
+            return "";
         });
 
         Spark.post("/api/player/gamemode", (request, response) -> {
@@ -229,8 +240,20 @@ public class ApiService {
 
             try {
                 GameMode newGameMode = GameMode.valueOf(gamemode.toUpperCase());
-                player.setGameMode(newGameMode);
-                return gson.toJson(Map.of("success", true, "message", "Gamemode changed successfully"));
+                
+                // Run gamemode change on the main server thread
+                org.bukkit.scheduler.BukkitRunnable task = new org.bukkit.scheduler.BukkitRunnable() {
+                    @Override
+                    public void run() {
+                        player.setGameMode(newGameMode);
+                        response.status(200);
+                        response.body(gson.toJson(Map.of("success", true, "message", "Gamemode changed successfully")));
+                    }
+                };
+                task.runTask(org.bukkit.plugin.java.JavaPlugin.getProvidingPlugin(ApiService.class));
+                
+                // This return is just a placeholder, the actual response is set in the BukkitRunnable
+                return "";
             } catch (IllegalArgumentException e) {
                 response.status(400);
                 return gson.toJson(Map.of("error", "Invalid gamemode"));

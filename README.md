@@ -118,7 +118,7 @@ git clone https://github.com/aymond/hive.minecraftrest.git
 mvn clean package
 ```
 
-3. Find the JAR in `target/minecraft-rest-1.0.0.jar`
+3. Find the JAR in `target/minecraft-rest-1.0.1.jar`
 
 ## Contributing
 
