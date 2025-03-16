@@ -10,6 +10,7 @@ A powerful REST API interface for Minecraft servers that provides secure endpoin
 - 📊 Server information and statistics
 - ⚡ Rate limiting protection
 - 🔍 Real-time player and world data
+- 📚 OpenAPI/Swagger documentation
 
 ## Requirements
 
@@ -41,6 +42,33 @@ security:
 ```
 
 ⚠️ **Important**: Change the default security settings before using in production!
+
+## API Documentation
+
+The API is documented using the OpenAPI (Swagger) specification. You can find the full API documentation in:
+- `api-docs/swagger.yaml` - OpenAPI 3.0 specification file
+- Import this file into tools like:
+  - [Swagger Editor](https://editor.swagger.io/)
+  - [Postman](https://www.postman.com/)
+  - [Insomnia](https://insomnia.rest/)
+
+### Quick API Overview
+
+All endpoints except `/api/auth/login` require JWT authentication via Bearer token.
+
+1. **Authentication**
+   - `POST /api/auth/login` - Get JWT token
+
+2. **Server Management**
+   - `GET /api/server/info` - Get server information
+   - `POST /api/server/command` - Execute console command
+   - `POST /api/broadcast` - Broadcast message
+
+3. **Player Management**
+   - `GET /api/players` - List online players
+   - `POST /api/player/message` - Send message to player
+   - `POST /api/player/kick` - Kick player
+   - `POST /api/player/gamemode` - Change player gamemode
 
 ## API Endpoints
 
